@@ -18,6 +18,11 @@ namespace prjDEMO.Controllers
             return View();
         }
 
+        public IActionResult JSONTest()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
