@@ -4,92 +4,22 @@
 
 <h1>Homework1</h1>
 <div class="card-group">
-    <div class="card">
+    <div class="card" id="card" style="display:nono">
         <img src="" class="card-img-top" alt="">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h7 class="card-title"></h7>
+            <p class="card-text"></p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-    </div>
-    <div class="card">
-        <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <small class="text-muted"></small>
         </div>
     </div>
 </div>
 @section Styles {
     <style>
         .card{
-            min-width: 20%;
-            max-width: 20%;
+            min-width: 25%;
+            max-width: 25%;
             display: flex;
             flex-wrap: wrap;
         }
@@ -113,8 +43,14 @@
         // })
         // tb.innerHTML = emps.join("");
         for (let i = 0, max = spots.CommonFormat.Section.length; i < max; i++) {
-            console.log("name: " + spots.CommonFormat.Section[i].RowNumber);
-            //+ ", workYears: " + emp.employees[i].workYears + ", salary: " + emp.employees[i].salary);
+            let cardObj = document.getElementById("card");
+            cardObj.querySelector('.card-img-top').src = spots.CommonFormat.Section[i].file.img[0].text;
+            cardObj.querySelectorAll('h7').item(0).innerText = spots.CommonFormat.Section[i].stitle;
+            cardObj.querySelectorAll('p').item(0).innerText = spots.CommonFormat.Section[i].xbody;
+            cardObj.querySelector('.card-footer').innerText = spots.CommonFormat.Section[i].MEMO_TIME;
+             
+            let objClone = cardObj.cloneNode(true);
+            cardObj.parentNode.append(objClone);
         }
 
     </script>
