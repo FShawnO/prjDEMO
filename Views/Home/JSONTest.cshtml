@@ -4,6 +4,18 @@
 }
 
 <h1>View</h1>
+<table class="table" id="table1">
+    <thead>
+        <tr>
+            <th scope="col">姓名</th>
+            <th scope="col">年資</th>
+            <th scope="col">薪水</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
 <ul id="ul1">
     
 </ul>
@@ -62,13 +74,13 @@
 
     const myUl = document.querySelector('#ul1');
 
-    emp.employees.forEach(emp => {
-        //console.log(emp.name)
-        const eleLi = document.createElement("li");
-        const textLi = document.createTextNode(emp.name);
-            eleLi.appendChild(textLi);
-            myUl.appendChild(eleLi)
-    })
+    //emp.employees.forEach(emp => {
+    //    //console.log(emp.name)
+    //    const eleLi = document.createElement("li");
+    //    const textLi = document.createTextNode(emp.name);
+    //        eleLi.appendChild(textLi);
+    //        myUl.appendChild(eleLi)
+    //})
 
     //const emps = emp.employees.map(emp => 
     //    {
@@ -82,5 +94,32 @@
 
     //myUl.innerHTML = emps.join("");
     //console.log(emps.join(""));
+
+    const tb = document.querySelector('#table1 tbody');
+    // const emps = emp.employees.map(emp=>{
+    //     return(
+    //         `<tr>
+    //         <td>${emp.name}</td>
+    //         <tr>${emp.name}</td>
+    //         <tr>${emp.name}</td>
+    //         </tr>
+    //         `
+    //     )
+    // })
+    // tb.innerHTML = emps.join("");
+
+    const emps = emp.employees.map(employee => {
+        //解構賦值
+        const { name, workYears, salary } = employee;
+        return (
+            `<tr>
+             <td>${name}</td>
+             <td>${workYears}</td>
+             <td>${salary}</td>
+             </tr>
+             `
+        )
+    })
+    tb.innerHTML = emps.join("");
 </script>
 }
